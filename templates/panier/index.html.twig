@@ -43,15 +43,18 @@
 				<tr>
 					<td colspan="3" class="text-end">Total :</td>
 					<td>{{ total }}€</td>
-                    {% for item in items %}
-                        <td>
-                            <a href="{{ path('panier_remove_all', {id: item.produit}) }}" class="btn-sm btn-danger">
-                                <i class="fas fa-trash">Supprimer la totalité du panier</i>
-                            </a>
-                        </td>
-                    {% endfor %}
+						<td>
+							<a href="{{ path('panier_remove_all') }}" class="btn-sm btn-danger">
+								<i class="fas fa-trash">Supprimer la totalité du panier</i>
+							</a>
+						</td>
+						<td>
+							<a href="{{ path('panier_achat') }}" class="btn-sm btn-success">
+								<i class="fa fa-shopping-cart">Payer</i>
+							</a>
+						</td>
 				</tr>
-          
+
 			</tfoot>
 		</table>
 	{% else %}

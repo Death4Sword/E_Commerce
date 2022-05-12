@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Créer un nouveau produit {% endblock%}
+
+
+{% block body %}
+    {{ form_start(formProduit) }}
+
+    {{ form_row(formProduit.nom, {
+        'label': 'nom',
+        'attr': {
+            'placeholder': "Nom du Produit"
+        }
+    }) }}
+
+    {{ form_row(formProduit.description, {
+        'label': 'description',
+        'attr': {
+            'placeholder': "Description du Produit"
+        }
+    }) }}
+
+    {{ form_row(formProduit.prix, {
+        'label': 'prix',
+        'attr': {
+            'placeholder': "Prix"
+        }
+    }) }}
+
+    {{ form_row(formProduit.imageFile) }}
+
+    {{ form_row(formProduit.categorie) }}
+    
+	{{ form_end(formProduit) }}
+
+{% endblock %}

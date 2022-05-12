@@ -47,19 +47,19 @@ class PanierController extends AbstractController
         ]);
     }
 
-        /**
+    /**
      * @Route("/panier/add/{id}", name="panier_add")
      */
-    public function add($id,Produit $produit,RequestStack $rs)
+    public function add($id, Produit $produit, RequestStack $rs)
     {
         // On récupère le panier actuel
         $session = $rs->getSession();
         $panier = $session->get('panier', []);
         $id = $produit->getId();
 
-        if(!empty($panier[$id])){
+        if (!empty($panier[$id])) {
             $panier[$id]++;
-        }else{
+        } else {
             $panier[$id] = 1;
         }
 
@@ -69,20 +69,20 @@ class PanierController extends AbstractController
         return $this->redirectToRoute(('app_panier'));
     }
 
-        /**
+    /**
      * @Route("/panier/substract/{id}", name="panier_substract")
      */
 
-    public function substract($id,Produit $produit,RequestStack $rs)
+    public function substract($id, Produit $produit, RequestStack $rs)
     {
         // On récupère le panier actuel
         $session = $rs->getSession();
         $panier = $session->get('panier', []);
         $id = $produit->getId();
 
-        if(!empty($panier[$id])){
+        if (!empty($panier[$id])) {
             $panier[$id]--;
-        }else{
+        } else {
             $panier[$id] = 1;
         }
 
@@ -106,7 +106,7 @@ class PanierController extends AbstractController
         return $this->redirectToRoute('app_panier');
     }
 
-        /**
+    /**
      * @Route("/panier/removeAll/", name="panier_remove_all")
      */
     public function removeAll(RequestStack $rs)
@@ -118,5 +118,27 @@ class PanierController extends AbstractController
             unset($panier);
         $session->remove('panier');
         return $this->redirectToRoute('app_panier');
+    }
+
+    /**
+     * @Route("/panier/acheter/", name="panier_achat")
+     */
+    public function acheter(RequestStack $rs)
+    {
+        $session = $rs->getSession();
+        $panier = $session->get('panier', []);
+
+        if (!empty($panier))
+            unset($panier);
+        $session->remove('panier');
+        return $this->redirectToRoute('app_panier_achat');
+    }
+
+    /**
+     * @Route("/panier/achat/", name="app_panier_achat")
+     */
+    public function achat()
+    {
+        return $this->render('panier/achat.html.twig');
     }
 }
