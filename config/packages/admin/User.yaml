@@ -1,0 +1,18 @@
+# easy_admin:
+#   entities:
+#         User:
+#           class: - App\Entity\User
+#           form:
+#               fields:
+#                   - {property: 'id'}
+#                   - {property: 'email'}
+#                   - {property: 'password'}
+#                   - {property: 'username'}
+#                   - {property: 'produits'}
+#                   - {property: 'commentaires'}
+
+#           list:
+#             sort: 'createdAt'
+#             actions:
+#               - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+#               - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}

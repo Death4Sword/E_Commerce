@@ -1,0 +1,20 @@
+# easy_admin:
+#   entities:
+#       Produit:
+#           class: - App\Entity\Produit
+#           form:
+#               fields:
+#                   - {property: 'id'}
+#                   - {property: 'nom'}
+#                   - {property: 'description'}
+#                   - {property: 'prix'}
+#                   - {property: 'image'}
+#                   - {property: 'categorie_id'}
+#                   - {property: 'user_id'}
+#                   - {property: 'commentaires'}
+
+#           list:
+#             sort: 'createdAt'
+#             actions:
+#               - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+#               - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}

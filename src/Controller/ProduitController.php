@@ -5,11 +5,11 @@ namespace App\Controller;
 use App\Entity\Produit;
 use App\Repository\ProduitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
-
 
 class ProduitController extends AbstractController
 {
@@ -37,10 +37,10 @@ class ProduitController extends AbstractController
     /**
     * @Route("/newproduct/new", name="produit_create")
     */
-    public function form(Request $request, EntityManagerInterface $manager)
+    public function form(Request $request, EntityManagerInterface $manager, Produit $produit = null)
     {
         $produit = new Produit;
-        $form = $this->createForm(ProduitType::class, $produit);
+        $form = $this->createForm(ProductType::class, $produit);
         
         $form->handleRequest($request);
         

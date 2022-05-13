@@ -7,7 +7,7 @@
     <h1 class="text-center my-3">Liste des produits</h1>
 
 	<div class="row">
-		{% for produit in produits %}
+		{% for produit in produits|sort((a, b) => a.nom <=> b.nom) %}
 			<div class="col-md-4">
 				<div class="card mb-3" style="width: 18rem;">
 					<h3 class="card-header">{{ produit.nom }}</h3>
